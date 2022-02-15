@@ -1,2 +1,4 @@
 # SELEC
 UW DIRECT SELEC PROJECT
+
+Karen Li
