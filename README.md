@@ -1,3 +1,8 @@
 # SELEC
 UW DIRECT SELEC PROJECT
+<<<<<<< HEAD
 itsa me, ROSE
+=======
+
+First Line
+>>>>>>> 106b08563b88db1309cf0cc383e8515652e40600
