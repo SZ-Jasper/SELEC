@@ -4,7 +4,7 @@ UW DIRECT SELEC PROJECT
 itsa me, ROSE
 =======
 
-#Prepare files to load dataframe in `Battery Dataset` directory
+# Prepare files to load dataframe in `Battery Dataset` directory
 Unzip `Cycle Data` and all `Time Data #` zip files
 Create `Time Data` directory
 Move all files from `Time Data #` directories to `Time Data` directory
