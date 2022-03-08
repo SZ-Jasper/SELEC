@@ -12,32 +12,58 @@ st.sidebar.image('SELEC Logo.png')
 
 
 # Cathode Selector -----------------------------------------------
-df = pd.DataFrame({
-    'cathodes': ['NMC', 'NCA', 'LFP'], 
+cath_select = pd.DataFrame({
+    'cathodes': ['NMC', 'NCA', 'LFP']
     })
 
-option = st.sidebar.selectbox(
+cath_option = st.sidebar.selectbox(
     'Select a cathode.',
-     df['cathodes'])
+     cath_select['cathodes'])
 
-'You selected: ', option
 
-# cycle 50 to 500 increments of 50 
-# temp 15 25 35
-# c rate 0.5 1 2 3 
+# Temp Selector ------------------------------------------------
+# st.sidebar.text_input('Temperature: ')
+# this would be for typed input rather than drop-down
 
-#     'temp': [15, 25, 35],
-#     'c-rate': [0.5, 1.0, 2.0, 3.0],
-#     'cycle_num': [50, 100, 150, 200, 250, 300, 350, 400, 450, 500],
+temp_select = pd.DataFrame({
+    'temp': [15, 25, 35]
+    })
 
-# Inputting data ------------------------------------------------
-st.sidebar.text_input('Temperature: ')
-st.sidebar.text_input('C-Rate: ')
-st.sidebar.text_input('Cycle Number: ')
+temp_option = st.sidebar.selectbox(
+    'Temperature',
+     temp_select['temp'])
+
+
+# C-Rate Selector ------------------------------------------------
+# st.sidebar.text_input('C-Rate: ')
+c_rate_select = pd.DataFrame({
+    'c-rate': [0.5, 1.0, 2.0, 3.0]
+    })
+
+c_rate_option = st.sidebar.selectbox(
+    'C-rate',
+     c_rate_select['c-rate'])
+
+# Cycle Selector ------------------------------------------------
+# st.sidebar.text_input('Cycle Number: ')
+cycle_select = pd.DataFrame({
+    'cycle_num': [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
+    })
+
+cycle_option = st.sidebar.selectbox(
+    'Cycle Number',
+     cycle_select['cycle_num'])
 
 
 # Start Calculation ----------------------------------------------
 st.sidebar.button('Calculate')
+
+
+# Output array of inputs to machine learning ----------------------
+front_to_back = [cath_option, temp_option, c_rate_option, cycle_option]
+
+'You selected: ', cath_option,', ', str(temp_option), 'Celsius, ', \
+    str(c_rate_option), 'C, and cycle number ', str(cycle_option) 
 
 
 # Progress Bar ----------------------------------------------------
