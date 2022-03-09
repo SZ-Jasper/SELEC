@@ -1,16 +1,8 @@
 # SELEC
-UW DIRECT SELEC PROJECT
-<<<<<<< HEAD
-=======
-
-# Prepare files to load dataframe in `Battery Dataset` directory
-Unzip `Cycle Data` directory <br>
-Restart and run all for "Battery_Dataset" python notebook <br>
-Use "Starter" python notebook to write new code <br>
-
+*Description of SELEC program*
 -----
-# Battery Descriptor file
-Added code to turn an array from the GUI into a numerical array to feed into MLM
+
+# 
 
 -----
 # Graphical User Interface
