@@ -15,14 +15,19 @@ Then, run the following command on their terminal: streamlit run selec_gui.py
 
 -----
 #Software Dependencies
+*relies on python 3.7 and packages needed to be installed.* <br>
 
 -----
 #Installation
+*instructions for installation of enviroment* <br>
+*have packages available in an enviroment*
 
 -----
 #Organization
+*organization of git repository?*
 
 -----
 #Tests
+*command line instruction to run tests in test.py*
 
 -----
