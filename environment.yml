@@ -1,0 +1,11 @@
+name: SELEC
+channels:
+  - defaults
+dependencies:
+  - numpy
+  - seaborn
+  - pandas
+  - matplotlib
+  - streamlit
+  - sklearn
+prefix: /home/kli625/anaconda3/envs/SELEC
