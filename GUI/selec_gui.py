@@ -6,6 +6,7 @@ import seaborn as sns
 import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+import plotly.graph_objects as go
 
 import time
 
@@ -85,19 +86,19 @@ front_to_back = [an_option, cath_option, cycle_option, temp_option, c_rate_optio
 
 
 # Progress Bar ----------------------------------------------------
-# 'Starting a long computation...'
-# # Add a placeholder
-# latest_iteration = st.empty()
-# bar = st.progress(0)
+'Starting a long computation...'
+# Add a placeholder
+latest_iteration = st.empty()
+bar = st.progress(0)
 
-# # we have to update this to reflect the actual computational time
-# n = 100
-# for i in range(n):
-#   # Update the progress bar with each iteration.
-#   bar.progress(i + 1)
-#   time.sleep(0.1)
+# we have to update this to reflect the actual computational time
+n = 100
+for i in range(n):
+  # Update the progress bar with each iteration.
+  bar.progress(i + 1)
+  time.sleep(0.1)
 
-# '...and now we\'re done!'
+'...and now we\'re done!'
 
 
 # Data Visualization -----------------------------------------------
@@ -107,17 +108,33 @@ x = [1,1,1] # input, strings (ex: 'NMC')
 y = [50,100,150] # input
 z = [13, 69, 21] # output
 
+N = 70
 
-fig = plt.figure(figsize = (5,5))
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(x, y, z, '--o', markersize = 10, label = 'line :)')
-ax.set_title('meaningless chart')
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.set_zlabel('z')
-ax.legend()
+fig = go.Figure(data=go.Scatter3d(
+    x=x, y=y, z=z,
+    marker=dict(
+        size=10,
+        color=z,
+    ),
+    line=dict(
+        color='darkblue',
+        width=3,
+        dash='dash'
+    )
+))
 
-fig
+st.plotly_chart(fig)
+
+# fig = plt.figure(figsize = (5,5))
+# ax = fig.add_subplot(111, projection='3d')
+# ax.plot(x, y, z, '--o', markersize = 10, label = 'line :)')
+# ax.set_title('meaningless chart')
+# ax.set_xlabel('x')
+# ax.set_ylabel('y')
+# ax.set_zlabel('z')
+# ax.legend()
+
+# fig
 
 # This was my Demo
 # 'Open Circuit Voltage'
