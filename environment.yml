@@ -6,6 +6,6 @@ dependencies:
   - seaborn
   - pandas
   - matplotlib
-  - streamlit
-  - sklearn
+  - scikit-learn
+  - pip
 prefix: /home/kli625/anaconda3/envs/SELEC
