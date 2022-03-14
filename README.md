@@ -38,8 +38,12 @@ This enviroment contains the following packages: <br>
 
 -----
 ## Battery Data
-The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. The data was retrieved from the [Battery Archive](http://www.batteryarchive.org/). 
+The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. 
+
+The data was retrieved from the [Battery Archive](http://www.batteryarchive.org/). 
+
 Citation for accompanying publication:
+
 Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 
 -----
