@@ -120,3 +120,27 @@ def report_gen(df):
     
     report = pd.concat([in_set,CC,DC,CE,DE,CEff,EEff],axis=1)
     return report
+
+
+def backend_to_frontend(df, user_in, report):
+    """ 
+    This function pulls the data from the report
+    based on the user input from the front end.
+    User input should be a list.
+    """
+    report = report_gen(df)
+    n, m = report.shape
+    data_indices = []
+    
+    for i in range(n):
+        if report['cathode'][i]==user_in[1] and \
+        report['temperature'][i]==user_in[3] and \
+        report['discharge_crate'][i]==user_in[4]:
+            data_indices.append(i)
+    
+    pulled_data = pd.DataFrame(columns = report.columns)
+    
+    for j in range(len(data_indices)):
+        pulled_data.loc[j] = report.iloc[data_indices[j], :]
+        
+    return pulled_data
