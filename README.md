@@ -22,12 +22,13 @@ For those who would like to run the jupyter and python files, please ensure you 
 
 -----
 ## Installation
-Install and activate the environment with `environment.yml` by:
-> `conda env create -f environment.yml`
+Install and activate the environment with `environment.yml` with the following commands:
 
-> `conda activate SELEC_env`
+`conda env create -f environment.yml`
+`conda activate SELEC_env`
 
 This enviroment contrains the following packages:
+-
 
 -----
 ## Organization
@@ -40,6 +41,7 @@ This enviroment contrains the following packages:
 
 -----
 ## Tests
-python -m unittest SELEC_test.py
+Use the following command to run tests in `test.py`
+`python -m unittest SELEC_test.py`
 
 -----
