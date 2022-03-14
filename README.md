@@ -24,8 +24,10 @@ For those who would like to run the jupyter and python files, please ensure you 
 ## Installation
 Install and activate the environment with `environment.yml` with the following commands:
 
-`conda env create -f environment.yml` <br>
-`conda activate SELEC_env` <br>
+`conda env create -f environment.yml` 
+
+`conda activate SELEC_env` 
+
 This enviroment contains the following packages: <br>
 -numpy
 
