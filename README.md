@@ -42,6 +42,7 @@ This enviroment contrains the following packages:
 -----
 ## Tests
 Use the following command to run tests in `test.py`: 
+
 `python -m unittest SELEC_test.py`
 
 -----
