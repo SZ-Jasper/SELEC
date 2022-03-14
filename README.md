@@ -26,9 +26,8 @@ Install and activate the environment with `environment.yml` with the following c
 
 `conda env create -f environment.yml`
 `conda activate SELEC_env`
-
-This enviroment contrains the following packages:
--
+This enviroment contains the following packages:
+-numpy
 
 -----
 ## Organization
