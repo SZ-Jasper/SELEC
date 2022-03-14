@@ -1,3 +1,5 @@
+### SELEC functions
+
 ### One Hot Encoding dataset
 def ohe_ACE(df):
     ohe = OneHotEncoder()
@@ -6,7 +8,6 @@ def ohe_ACE(df):
     df_encoded_ACE = pd.DataFrame(ACE.toarray())
     return df_encoded_ACE
 
-### Split Data
 def ohe_dataframe(df):
     df_ACE_col_name = ['A1','C1','C2','C3','E1','E2','E3']
     df_encoded_ACE = ohe_ACE(df)
@@ -15,6 +16,9 @@ def ohe_dataframe(df):
     df_ohe = pd.concat([df_encoded_ACE, df],axis=1)
     return df_ohe
 
+
+
+### Split Data
 def data_split (df, test_ratio, output, seed):
     np.random.seed(seed)
     
@@ -36,10 +40,14 @@ def data_split (df, test_ratio, output, seed):
     
     return train,test,X_train,y_train,X_test,y_test
 
+
+
 ### Kfolds
 def kfold(n_split,rand_state):
     kf = KFold(n_splits=n_split, random_state=rand_state, shuffle= True)
     return kf
+
+
 
 ### Scale train and test sets
 def data_scale(X_train, X_test):
@@ -54,13 +62,14 @@ def data_scale(X_train, X_test):
     
     return X_train_scaled,X_test_scaled
 
+
+
 ### GridSearchCV for Hyperparameters
 def grid_knn_hp(lower, upper, df, output):
     param_grid = {'n_neighbors':range(lower,upper),
                   'weights':['uniform', 'distance'],
                   'algorithm':['auto', 'ball_tree', 'kd_tree'],
                  }
-
 
     grid_search = GridSearchCV(KNeighborsRegressor(), 
                                param_grid,
@@ -77,6 +86,8 @@ def grid_knn_hp(lower, upper, df, output):
     weight = best_knn_hp[2]
     
     return  alg, n_neigh, weight
+
+
 
 ### Train machine learning models
 def knn_train(df, output):
@@ -111,6 +122,8 @@ def knn_train(df, output):
     
     return RMSE_avg
 
+
+
 ### Test Machine learning models
 def knn_test(df, output):
     np.random.seed(66)
@@ -128,8 +141,34 @@ def knn_test(df, output):
     RMSE = np.sqrt(mse)
     return RMSE
 
-### Prepare user battery set for predictor
-def X_set_prep(df, desc):
+
+
+### Prepare battery sets for predictor
+def X_set_in(df):
+    ac = df_battery['anode'].unique()
+    cc = df_battery['cathode'].unique()
+    ec = df_battery['electrolyte'].unique()
+    cycle = df_battery['Cycle'].unique()
+    tc = df_battery['temperature'].unique()
+    cr = df_battery['discharge_crate'].unique()
+
+    X_temp = []
+    for a in range(len(ac)):
+        for b in range(len(cc)):
+            for c in range(len(ec)):
+                for d in range(len(cycle)):
+                    for e in range(len(tc)):
+                        for f in range(len(cr)):
+                            X_temp.append([ac[a],cc[b],ec[c],cycle[d],tc[e],cr[f]])
+                        
+    column_names = ['anode','cathode','electrolyte','Cycle','temperature','discharge_crate']
+    X_set = pd.DataFrame(X_temp, columns = column_names)
+        
+    return X_set
+
+def X_set_en(df):
+    X_set = X_set_in(df)
+    
     ohe = OneHotEncoder()
     ACE = df.loc[:,['anode','cathode','electrolyte']]
     ohe.fit_transform(ACE)
@@ -137,17 +176,10 @@ def X_set_prep(df, desc):
     filehandler = open("ohe.obj","wb")
     pickle.dump(ohe,filehandler)
     filehandler.close()
-
     file = open("ohe.obj",'rb')
     ohe_loaded = pickle.load(file)
     file.close()
 
-    ec = df_battery['electrolyte'].unique()
-    column_names = ['anode','cathode','electrolyte','Cycle','temperature','discharge_crate']
-    X_set = pd.DataFrame(columns = column_names)
-    for i in range(len(ec)):
-        X_set.loc[i] = [desc[0],desc[1],ec[i],desc[2],desc[3],desc[4]]
-    
     ace = X_set.loc[:,['anode','cathode','electrolyte']]
     ace = ohe_loaded.transform(ace)
     ace = pd.DataFrame(ace.toarray())
@@ -158,8 +190,9 @@ def X_set_prep(df, desc):
     for i in range(len(ace.columns)):
         ace = ace.rename({ace.columns[i]: df_ace_col_name[i]}, axis=1) 
     X_set = pd.concat([ace, X_num],axis=1)
-    
     return X_set
+
+
 
 ### Predictor
 def df_prep(df, output):    
@@ -171,9 +204,9 @@ def df_prep(df, output):
     
     return X_bat, y_bat
 
-def battery_predictor(df, output, desc):
+def battery_predictor(df, output):
     X_bat, y_bat = df_prep(df, output)
-    X_set = X_set_prep(df, desc)
+    X_set = X_set_en(df)
     X_bat_scaled, X_set_scaled = data_scale(X_bat, X_set)
     
     best_knn_hp = grid_knn_hp(1, 51, df, output)
@@ -188,22 +221,19 @@ def battery_predictor(df, output, desc):
     y_predict=KNN_model.predict(X_set_scaled)
     return y_predict
 
-### Report Generator
-def report_gen(df, desc):
-    ec = df_battery['electrolyte'].unique()
-    column_names = ['anode','cathode','electrolyte','Cycle','temperature','discharge_crate']
-    user_set = pd.DataFrame(columns = column_names)
-    for i in range(len(ec)):
-        user_set.loc[i] = [description[0],description[1],ec[i],description[2],description[3],description[4]]
-    
-    CC = pd.DataFrame(battery_predictor(df, 'Charge_Capacity (Ah)', desc), columns = ['Charge_Capacity (Ah)'])
-    DC = pd.DataFrame(battery_predictor(df, 'Discharge_Capacity (Ah)', desc), columns = ['Discharge_Capacity (Ah)'])
-    CE = pd.DataFrame(battery_predictor(df, 'Charge_Energy (Wh)', desc), columns = ['Charge_Energy (Wh)'])
-    DE = pd.DataFrame(battery_predictor(df, 'Discharge_Energy (Wh)', desc), columns = ['Discharge_Energy (Wh)'])
-    CEff = pd.DataFrame(battery_predictor(df, 'Coulombic_Efficiency (%)', desc), columns = ['Coulombic_Efficiency (%)'])
-    EEff = pd.DataFrame(battery_predictor(df, 'Energy_Efficiency (%)', desc), columns = ['Energy_Efficiency (%)'])
-    
-    report = pd.concat([user_set,CC,DC,CE,DE,CEff,EEff],axis=1)
-    return report
 
+
+### Report Generator
+def report_gen(df):
+    in_set = X_set_in(df)
+    
+    CC = pd.DataFrame(battery_predictor(df, 'Charge_Capacity (Ah)'), columns = ['Charge_Capacity (Ah)'])
+    DC = pd.DataFrame(battery_predictor(df, 'Discharge_Capacity (Ah)'), columns = ['Discharge_Capacity (Ah)'])
+    CE = pd.DataFrame(battery_predictor(df, 'Charge_Energy (Wh)'), columns = ['Charge_Energy (Wh)'])
+    DE = pd.DataFrame(battery_predictor(df, 'Discharge_Energy (Wh)'), columns = ['Discharge_Energy (Wh)'])
+    CEff = pd.DataFrame(battery_predictor(df, 'Coulombic_Efficiency (%)'), columns = ['Coulombic_Efficiency (%)'])
+    EEff = pd.DataFrame(battery_predictor(df, 'Energy_Efficiency (%)'), columns = ['Energy_Efficiency (%)'])
+    
+    report = pd.concat([in_set,CC,DC,CE,DE,CEff,EEff],axis=1)
+    return report
 
