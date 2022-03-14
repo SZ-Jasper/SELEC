@@ -3,10 +3,13 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import seaborn as sns
+
 import matplotlib
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+
 import plotly.graph_objects as go
+import plotly.express as px
 
 import time
 
@@ -21,7 +24,7 @@ st.sidebar.image('SELEC Logo.png')
 
 # Anode Selector -----------------------------------------------
 an_df = pd.DataFrame({
-    'anodes': ['Graphite']
+    'anodes': ['graphite']
     })
 
 an_option = st.sidebar.selectbox(
@@ -38,8 +41,6 @@ cath_option = st.sidebar.selectbox(
      cath_df['cathodes'])
 
 # Temp Selector ------------------------------------------------
-# st.sidebar.text_input('Temperature: ')
-# this would be for typed input rather than drop-down
 
 temp_select = pd.DataFrame({
     'temp': [15, 25, 35]
@@ -51,7 +52,6 @@ temp_option = st.sidebar.selectbox(
 
 
 # C-Rate Selector ------------------------------------------------
-# st.sidebar.text_input('C-Rate: ')
 c_rate_select = pd.DataFrame({
     'c-rate': [0.5, 1.0, 2.0, 3.0]
     })
@@ -60,11 +60,7 @@ c_rate_option = st.sidebar.selectbox(
     'C-rate',
      c_rate_select['c-rate'])
 
-#st.write(st.session_state)
-
-
 # Cycle Selector ------------------------------------------------
-# st.sidebar.text_input('Cycle Number: ')
 cycle_select = pd.DataFrame({
     'cycle_num': [50, 100, 150, 200, 250, 300, 350, 400, 450, 500]
     })
@@ -87,7 +83,6 @@ front_to_back = [an_option, cath_option, cycle_option, temp_option, c_rate_optio
 
 # Progress Bar ----------------------------------------------------
 'Starting a long computation...'
-# Add a placeholder
 latest_iteration = st.empty()
 bar = st.progress(0)
 
@@ -108,41 +103,22 @@ x = [1,1,1] # input, strings (ex: 'NMC')
 y = [50,100,150] # input
 z = [13, 69, 21] # output
 
-N = 70
+fig = px.scatter_3d(x=x, y=y, z=z,
+                    color=x, 
+                    labels = {'x': 'Battery System', 'y': 'Cycle Number',
+                              'z': 'Output'})
 
-fig = go.Figure(data=go.Scatter3d(
-    x=x, y=y, z=z,
-    marker=dict(
-        size=10,
-        color=z,
-    ),
-    line=dict(
-        color='darkblue',
-        width=3,
-        dash='dash'
-    )
-))
+fig.update_layout(title ={'text' :'help me', 
+                          'x' : 0.5},
+                 scene = dict(
+                     xaxis = dict(
+                         nticks = 3,
+                         ticktext = ['NMC', 'NFP', 'LCA'],
+                     tickvals = [0, 1, 2]))
+                 )
 
 st.plotly_chart(fig)
 
-# fig = plt.figure(figsize = (5,5))
-# ax = fig.add_subplot(111, projection='3d')
-# ax.plot(x, y, z, '--o', markersize = 10, label = 'line :)')
-# ax.set_title('meaningless chart')
-# ax.set_xlabel('x')
-# ax.set_ylabel('y')
-# ax.set_zlabel('z')
-# ax.legend()
-
-# fig
-
-# This was my Demo
-# 'Open Circuit Voltage'
-# OCV = pd.DataFrame(
-#      np.random.randn(20, 3),
-#      columns=['NMC', 'NCA', 'LFP'])
-
-# st.line_chart(OCV)
 
 # data frames --> output, MSE
 # we're interested in a 3D plot
