@@ -28,6 +28,6 @@ Then, run the following command on their terminal: streamlit run selec_gui.py
 
 -----
 ## Tests
-*command line instruction to run tests in test.py*
+python -m unittest SELEC_test.py
 
 -----
