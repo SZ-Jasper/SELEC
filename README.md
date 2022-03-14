@@ -21,7 +21,7 @@ Then, run the following command on their terminal:
 The SELEC predictor is available on the web and python is not required. Please see *Interface Instructions* for more information. 
 For those who would like to run the jupyter and python files, please ensure you have the following:
 - Python 3.7
-- Python packages listed in `environment.yml`
+- Python packages listed in `environment.yml`and Installation section. 
 
 -----
 ## Installation
