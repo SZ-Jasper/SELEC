@@ -15,6 +15,7 @@ Then, run the following command on their terminal: streamlit run selec_gui.py
 
 -----
 ## Software Dependencies
+<<<<<<< HEAD
 The SELEC predictor is available on the web and python is not required. Please see *Interface Instructions* for more information. 
 For those who would like to run the jupyter and python files, please ensure you have the following:
 - Python 3.7
@@ -28,11 +29,20 @@ Install and activate the environment with `environment.yml` by:
 > `conda activate SELEC_env`
 
 This enviroment contrains the following packages:
+=======
+*relies on python 3.7 and packages needed to be installed.* <br>
+
+-----
+## Installation
+*instructions for installation of enviroment* <br>
+*have packages available in an enviroment*
+>>>>>>> sunlight
 
 -----
 ## Organization
 *organization of git repository?*
 
+<<<<<<< HEAD
 
 -----
 ## Battery Data
@@ -41,5 +51,10 @@ This enviroment contrains the following packages:
 -----
 ## Tests
 python -m unittest SELEC_test.py
+=======
+-----
+## Tests
+*command line instruction to run tests in test.py*
+>>>>>>> sunlight
 
 -----
