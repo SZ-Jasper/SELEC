@@ -1,5 +1,5 @@
 # SELEC
-*Description of SELEC program*
+The SELEC project (Maching Learning for Selecting Electrolytes) is aiming to produce a ML based program that can return the optimized electrolyte for a given electrode system. Considering the continuously growring research interest in battery industry, tons of battery tests are being generated and thus numerous battery datasets are available for machine learning study. In this project, the program is built up with a regression model (categorize & predict data) and a graphical user interface (for electrode determination & output display). The model will be trained with a given battery dataset that involves information of electrodes, electrolytes, battery performances in different aspects. The trained model will then be validated and tested with spliited dataset and the final prediction will be stored in a local file. The users are thus able to access the GUI by specigying electrodes and electrolyte selection.
 
 -----
 ## Graphical User Interface
