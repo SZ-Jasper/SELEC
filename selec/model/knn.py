@@ -16,7 +16,7 @@ df_battery = pd.read_csv('../data/Battery_Dataset.csv')
 
 
 def data_split (df, test_ratio, output, seed):
-    """ DOC STRING TO BE ADDED """
+    """ This function split the data"""
     np.random.seed(seed)
     
     df_enbattery = ohe_dataframe(df)
@@ -41,13 +41,13 @@ def data_split (df, test_ratio, output, seed):
 
 
 def kfold(n_split,rand_state):
-    """ DOC STRING TO BE ADDED """
+    """ This is the k-fold cross validation """
     kf = KFold(n_splits=n_split, random_state=rand_state, shuffle= True)
     return kf
 
 
 def data_scale(X_train, X_test):
-    """ DOC STRING TO BE ADDED """
+    """ This funciton insure all the input values in a standar range """
     scaler = StandardScaler(with_mean=True,with_std=True)
 
     scaler.fit(X_train)
@@ -60,7 +60,7 @@ def data_scale(X_train, X_test):
 
 
 def grid_knn_hp(lower, upper, df_battery, output):
-    """ DOC STRING TO BE ADDED """
+    """ This function tuning the hyperparameters """
     param_grid = {'n_neighbors':range(lower,upper),
                   'weights':['uniform', 'distance'],
                   'algorithm':['auto', 'ball_tree', 'kd_tree'],
@@ -86,16 +86,14 @@ def grid_knn_hp(lower, upper, df_battery, output):
 
 
 def knn_train(df, output):
-    """ DOC STRING TO BE ADDED """
+    """ This function train the model and calculate the train error """
     np.random.seed(66)
     
     alg, n_neigh, weight = grid_knn_hp(1, 51, df, output)
     KNN_model_train =KNeighborsRegressor( algorithm = alg, 
                                          n_neighbors=n_neigh, 
-                                         weights = weight)
-
-    train_results =[]
-    train_results_name =['Experimental','Predicted ','RMSE']
+train_results =[]
+train_results_name =['Experimental','Predicted ','RMSE']                                         weights = weight)
 
     kf = kfold(10,66)
 
@@ -123,7 +121,7 @@ def knn_train(df, output):
 
 
 def knn_test(df, output):
-    """ DOC STRING TO BE ADDED """
+    """ This function predict the result and calculate the test error """
     np.random.seed(66)
     
     alg, n_neigh, weight = grid_knn_hp(1, 51, df, output)
