@@ -41,6 +41,8 @@ Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 -----
 ## Graphical User Interface
 
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG width=300 alt="selec gui sidebar with dropdown menus" p align="left">
+
 The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-based GUI that runs on the user's browser. 
 To run the GUI from local files, change into the selec directory, and enter the following command from a terminal: 
 
@@ -49,8 +51,6 @@ To run the GUI from local files, change into the selec directory, and enter the 
 This should bring up a series of URLS on the terminal, which can be copy and pasted into a web browser.
 
 Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. 
-
-<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG width=300 alt="selec gui sidebar with dropdown menus" p align="left">
 
 After finishing the calculations, the following plots will appear on the GUI, all with respect to cycle number:
 * Charge capacity 
