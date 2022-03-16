@@ -1,4 +1,4 @@
-<p align="right"><img src="https://github.com/SZ-Jasper/SELEC/blob/main/doc/SELEC%20Logo.png" width=100 alt="selec logo"/></p>
+<p align="right"><img src="https://github.com/SZ-Jasper/SELEC/blob/main/doc/SELEC%20Logo.png" width=300 alt="selec logo"/></p>
 
 # SELEC
 
