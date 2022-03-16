@@ -3,12 +3,12 @@ channels:
   - defaults
 dependencies:
   - jupyter
-  - pandas==1.4.1
-  - numpy==1.21.2
-  - scikit-learn==1.0.2
-  - pip==21.2.4
+  - pandas
+  - numpy
+  - scikit-learn
+  - pip
   - pip:
     - plotly==5.6.0
-    - streamlit==1.7.0
+    - streamlit
 
 prefix: /home/roselee3/miniconda3/envs/SELEC
