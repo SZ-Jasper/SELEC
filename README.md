@@ -20,9 +20,6 @@ Install and activate the environment with `environment.yml` with the following c
 
 `conda activate selec` 
 
-This enviroment contains the following packages: <br>
--numpy
-
 -----
 ## Organization
 *organization of git repository?*
