@@ -1,5 +1,8 @@
 # SELEC
-The SELEC project (Maching Learning for Selecting Electrolytes) is aiming to produce a ML based program that can return the optimized electrolyte for a given electrode system. Considering the continuously growring research interest in battery industry, tons of battery tests are being generated and thus numerous battery datasets are available for machine learning study. In this project, the program is built up with a regression model (categorize & predict data) and a graphical user interface (for electrode determination & output display). The model will be trained with a given battery dataset that involves information of electrodes, electrolytes, battery performances in different aspects. The trained model will then be validated and tested with spliited dataset and the final prediction will be stored in a local file. The users are thus able to access the GUI by specifying battery parameters of interest and the program will returen the best combination based on the prediction result from the previously trained dataset. 
+
+<p align="right"><img src="https://github.com/SZ-Jasper/SELEC/blob/main/doc/SELEC%20Logo.png" width=500 alt="selec logo"/></p>
+
+The SELEC project (Maching Learning for Selecting Electrolytes) aims to produce a machine learning program that can return the optimized electrolyte for a given battery system. Considering the continuously growing research interest in the battery industry, tons of battery experiments are being conducted, and thus numerous battery datasets are available for machine learning study. In this project, the program is built up with a regression model (categorize & predict data) and a graphical user interface (for electrode determination & output display). The model will be trained with a given battery dataset that involves information of electrodes, electrolytes, battery performances in different aspects. The trained model will then be validated and tested with spliited dataset and the final prediction will be stored in a local file. The users are thus able to access the GUI by specifying battery parameters of interest and the program will returen the best combination based on the prediction result from the previously trained dataset. 
 
 
 -----
@@ -15,7 +18,7 @@ Install and activate the environment with `environment.yml` with the following c
 
 `conda env create -f environment.yml` 
 
-`conda activate SELEC_env` 
+`conda activate selec` 
 
 This enviroment contains the following packages: <br>
 -numpy
@@ -45,7 +48,9 @@ To run the GUI from local files, change into the selec directory, and enter the 
  
 This should bring up a series of URLS on the terminal, which can be copy and pasted into a web browser.
 
-Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. (will put image of sidebar here i guess lol)
+Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. 
+
+<p align="left"><img src="https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG" width=400 alt="selec gui sidebar with dropdown menus"/></p>
 
 After finishing the calculations, the following plots will appear on the GUI, all with respect to cycle number:
 * Charge capacity 
@@ -56,10 +61,10 @@ After finishing the calculations, the following plots will appear on the GUI, al
 * Discharge energy
 
 The user can interact with these plots by:
-* zooming in/out and panning
-* hovering over a point for specific data
-* rotating the 3D plots
-* saving the figure as a png
+* Zooming in/out of the image and panning 
+* Hovering over a point for specific data
+* Rotating the 3D plots
+* Saving the figure as a png
 
 -----
 
