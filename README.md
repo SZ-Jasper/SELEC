@@ -52,6 +52,7 @@ This should bring up a series of URLS on the terminal, which can be copy and pas
 
 Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. 
 
+
 After finishing the calculations, the following plots will appear on the GUI, all with respect to cycle number:
 * Charge capacity 
 * Discharge capcity 
@@ -60,11 +61,13 @@ After finishing the calculations, the following plots will appear on the GUI, al
 * Charge energy
 * Discharge energy
 
+
 The user can interact with these plots by:
 * Zooming in/out of the image and panning 
 * Hovering over a point for specific data
 * Rotating the 3D plots
 * Saving the figure as a png
+
 
 -----
 
