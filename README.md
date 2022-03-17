@@ -1,20 +1,9 @@
 # SELEC
-The SELEC project (Maching Learning for Selecting Electrolytes) is aiming to produce a ML based program that can return the optimized electrolyte for a given electrode system. Considering the continuously growring research interest in battery industry, tons of battery tests are being generated and thus numerous battery datasets are available for machine learning study. In this project, the program is built up with a regression model (categorize & predict data) and a graphical user interface (for electrode determination & output display). The model will be trained with a given battery dataset that involves information of electrodes, electrolytes, battery performances in different aspects. The trained model will then be validated and tested with spliited dataset and the final prediction will be stored in a local file. The users are thus able to access the GUI by specifying battery parameters of interest and the program will returen the best combination based on the prediction result from the previously trained dataset. 
 
------
-## Graphical User Interface
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/SELEC%20Logo.png width=300 p align="right">
 
-The SELEC module uses streamlit (https://streamlit.io/), a Python-based GUI that runs on the user's browser. 
+The SELEC project (Maching Learning for Selecting Electrolytes) aims to produce a machine learning program that can return the optimized electrolyte for a given battery system. Considering the continuously growing research interest in the battery industry, tons of battery experiments are being conducted, and thus numerous battery datasets are available for machine learning study. In this project, the program is built up with a regression model (categorize & predict data) and a graphical user interface (for electrode determination & output display). The model will be trained with a given battery dataset that involves information of electrodes, electrolytes, battery performances in different aspects. The trained model will then be validated and tested with spliited dataset and the final prediction will be stored in a local file. The users are thus able to access the GUI by specifying battery parameters of interest and the program will returen the best combination based on the prediction result from the previously trained dataset. 
 
-*Link to GUI*
-
-Then, run the following command on their terminal: 
-
-`streamlit run selec_gui.py`
-
---> this will soon be changed to maybe the github link instead of a local py file
-
-*Tutorial -> image of how to input -> image of resulting plots
 
 -----
 ## Software Dependencies
@@ -29,6 +18,7 @@ Install and activate the environment with `environment.yml` with the following c
 
 `conda env create -f environment.yml` 
 
+<<<<<<< HEAD
 `conda activate SELEC_env` 
 
 This enviroment contains the following packages: <br>
@@ -40,6 +30,9 @@ This enviroment contains the following packages: <br>
 - pip:
   - plotly==5.6.0
   - streamlit==1.7.0
+=======
+`conda activate selec` 
+>>>>>>> fbe30ed92fd722ef270d9f0d94be0d82bd05735a
 
 -----
 ## Organization
@@ -57,6 +50,39 @@ Citation for accompanying publication:
 Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 
 -----
+## Graphical User Interface
+
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG width=300 alt="selec gui sidebar with dropdown menus" p align="left">
+
+The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-based GUI that runs on the user's browser.
+
+To run the GUI from local files, change into the selec directory, and enter the following command from a terminal: 
+
+`streamlit run selec_gui.py`
+ 
+This should bring up a series of URLS on the terminal, which can be copy and pasted into a web browser.
+
+Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. 
+
+
+After finishing the calculations, the following plots will appear on the GUI, all with respect to cycle number:
+* Charge capacity 
+* Discharge capcity 
+* Coulombic efficiency
+* Energy efficiency
+* Charge energy
+* Discharge energy
+
+
+The user can interact with these plots by:
+* Zooming in/out of the image and panning 
+* Hovering over a point for specific data
+* Rotating the 3D plots
+* Saving the figure as a png
+
+
+-----
+
 ## Tests
 Use the following command to run tests in `test.py`: 
 
