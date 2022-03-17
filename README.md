@@ -134,7 +134,7 @@ The user can interact with these plots by:
 * Rotating the 3D plots
 * Saving the figure as a png
 
-<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%203DPlot.png width=500 p align = "center">
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%203DPlot.png width=800 p align = "center">
 
 -----
 
