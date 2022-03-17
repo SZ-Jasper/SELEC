@@ -40,14 +40,56 @@ This enviroment contains the following packages: <br>
 SELEC
 -----
 setup.py                  
-environment.yml                          
+environment.yml
+.gitignore 
+LICENSE
+README.md
 examples/                 
-|-batteryprepare.ipynb          
+|-batteryprepare.ipynb
+|-dataprep_example.ipynb
+|-gui_example.ipynb
+|-knn_example.ipynb
 selec/
 |-tests/
+  |-__init__.py
+  |-test_selec.py
 |-model/
-| |-knn.py             
-
+  |-knn.py  
+  |-__init__.py
+|-dataprepare/
+  |-dataprep.py
+  |-__init__.py
+|-predictor/
+  |-batterypredict.py
+  |-__init__.py
+|-__init__.py
+|-ohe.obj
+|-selec.py
+supplementary/
+|-Artificial_Neural_Network.ipynb
+|-Decision_Trees_Regression.ipynb
+|-Gaussian_Process_Regression.ipynb 
+|-Gradient_Boosting_Machine.ipynb
+|-KNN_Regression.ipynb
+|-Neural Network Example.ipynb
+|-Random_Forest_Regression.ipynb 
+|-Support_Vector_Machine_Regression.ipynb
+doc/
+|-Visual/
+  |-3D graph.ipynb
+  |-selec_sidebar.JPG
+|-SELEC Logo.png
+|-SELEC_Poster.pptx
+|-Technology Review Machine Learning.pptx
+|-Technology Review User Interface.pptx
+|-Use Cases and Component Specification.docx
+data/
+|-Battery_Dataset.csv
+|-Battery_Dataset.ipynb
+|-Cycle Data.zip
+|-snl_metadata_cycle_500.csv
+.github/workflows/
+|-python-package-conda.yml
 ```
 -----
 ## Battery Data
