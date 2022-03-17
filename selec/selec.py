@@ -537,7 +537,7 @@ fig5.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency',
                   )
 
 st.plotly_chart(fig5)
-=======
+
 st.plotly_chart(fig3)
 
 
