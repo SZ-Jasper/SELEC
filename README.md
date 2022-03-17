@@ -16,9 +16,9 @@ For those who would like to run the jupyter and python files, please ensure you 
 ## Installation
 Install and activate the 'SELEC' environment in your desired directory with the following commands:
 
-'git clone https://github.com/SZ-Jasper/SELEC.git'
+`git clone https://github.com/SZ-Jasper/SELEC.git`
 
-'cd SELEC'
+`cd SELEC`
 
 `conda env create -f environment.yml` 
 
@@ -40,7 +40,19 @@ After acivating the SELEC enviroment, install packages with the following comman
 
 -----
 ## Organization
-*organization of git repository?*
+```
+SELEC
+-----
+setup.py                  
+environment.yml                          
+examples/                 
+|-batteryprepare.ipynb          
+selec/
+|-tests/
+|-model/
+| |-knn.py             
+
+```
 
 
 -----

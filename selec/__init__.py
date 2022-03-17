@@ -1,4 +1,4 @@
-from .dataprepare.dataprep import *
-from .model.knn import *
-from .predictor.batterypredict import*
+from .dataprepare import *
+from .model import *
+from .predictor import*
 from .selec import*
