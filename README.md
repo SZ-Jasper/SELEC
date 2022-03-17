@@ -147,7 +147,7 @@ Change into tests directory and Use the following command to run tests in `SELEC
 -----
 
 ## Authors
-Karen Li, Chemical Engineering
-Rose Lee, Chemical Engineering
-Bella Wu, Material Science and Engineering
-Shuyan Zhao, Material Science and Engineering
+Karen Li, Chemical Engineering <br>
+Rose Lee, Chemical Engineering <br>
+Bella Wu, Material Science and Engineering <br>
+Shuyan Zhao, Material Science and Engineering <br>
