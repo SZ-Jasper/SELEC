@@ -38,8 +38,7 @@ This enviroment contains the following packages: <br>
 ## Organization
 ```
 SELEC
------
-setup.py                  
+-----              
 environment.yml
 .gitignore 
 LICENSE
@@ -78,6 +77,8 @@ doc/
 |-Visual/
   |-3D graph.ipynb
   |-selec_sidebar.JPG
+  |-SELEC 2DPlot
+  |-SELEC 3DPlot
 |-SELEC Logo.png
 |-SELEC_Poster.pptx
 |-Technology Review Machine Learning.pptx
