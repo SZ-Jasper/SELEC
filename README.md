@@ -68,7 +68,7 @@ The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-b
 
 To run the GUI from local files, follow the instructions in the "Installation" section, then enter the following command from a terminal: 
 
-`cd SELEC/selec`
+`cd selec`
 
 `streamlit run selec.py`
  
@@ -98,6 +98,6 @@ The user can interact with these plots by:
 ## Tests
 Use the following command to run tests in `test.py`: 
 
-`python -m unittest SELEC_test.py`
+`python -m unittest test_selec.py`
 
 -----
