@@ -30,7 +30,9 @@ This enviroment contains the following packages: <br>
   - plotly==5.6.0
   - streamlit
 
-installation instructions here
+After acivating the SELEC enviroment, install packages with the following command:
+
+`pip install git+https://github.com/SZ-Jasper/SELEC.git`
 
 -----
 ## Organization
