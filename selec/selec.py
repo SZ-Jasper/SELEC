@@ -10,8 +10,6 @@ from dataprepare.dataprep import *
 from model.knn import *
 from predictor.batterypredict import*
 
-st.set_page_config(layout="wide")
-
 
 # Logo, bc priorities --------------------------------------------
 st.sidebar.image('../doc/SELEC Logo.png')
@@ -88,7 +86,7 @@ elec_pan = pulled_data.iloc[10:20, :]
 # last ten are LGC
 elec_LGC = pulled_data.iloc[20:30, :]
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 
 # Charge Capacity --------------------------------------------------
@@ -151,7 +149,7 @@ with col1:
     )
 
 
-    fig.update_layout(title ={'text' :front_to_back[1] + ' Charge Capacity', 
+    fig.update_layout(title ={'text' :front_to_back[1] + ' Cathode Charge Capacity', 
                               'x' : 0.5},
                       autosize=False,
                       width=600,
@@ -230,7 +228,7 @@ with col3:
             )
         )
 
-    fig1.update_layout(title ={'text' :front_to_back[1] + ' Discharge Capacity', 
+    fig1.update_layout(title ={'text' :front_to_back[1] + ' Cathode Discharge Capacity', 
                               'x' : 0.5},
                       autosize=False,
                       width=600,
@@ -535,165 +533,4 @@ fig5.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency',
                    yaxis = dict(
                        title = 'EE (%)')
                   )
-
 st.plotly_chart(fig5)
-
-st.plotly_chart(fig3)
-
-
-# more white space
-st.empty()
-
-
-col3, col4 = st.columns(2)
-# Charge Energy --------------------------------------------------
-
-with col3:
-    fig4 = go.Figure(data=go.Scatter3d(
-        x=elec_a123['electrolyte'], 
-        y=elec_a123['Cycle'], 
-        z=elec_a123['Charge_Energy (Wh)'],
-        marker=dict(
-            size=10,
-            color = '#5271FF'
-        ),
-        line=dict(
-            color='#5271FF',
-            width=3,
-            dash='dash'
-        ),
-        name='A123'
-    ))
-
-
-    fig4.add_trace(
-        go.Scatter3d(
-            x=elec_pan['electrolyte'],
-            y=elec_pan['Cycle'],
-            z=elec_pan['Charge_Energy (Wh)'],
-            marker=dict(
-                size=10,
-                color = '#FF5757'
-            ),
-            line=dict(
-                color='#FF5757',
-                width=3,
-                dash='dash'
-            ),
-            name='Panasonic'
-        )
-    )
-
-
-    fig4.add_trace(
-        go.Scatter3d(
-            x=elec_LGC['electrolyte'], 
-            y=elec_LGC['Cycle'],
-            z=elec_LGC['Charge_Energy (Wh)'],
-            marker=dict(
-                size=10,
-                color = '#FFBD59'
-            ),
-            line=dict(
-                color = '#FFBD59',
-                width=3,
-                dash='dash'
-            ),
-            name='LG Chem'
-        )
-    )
-
-
-    fig4.update_layout(title ={'text' :front_to_back[1] + ' Charge Energy', 
-                              'x' : 0.5},
-                      autosize=False,
-                      width=600,
-                      height=600,
-                      font = dict(size = 14),
-                      scene = dict(
-                          xaxis = dict(
-                              nticks = 3,
-                              title = 'Electrolyte'),
-                          yaxis = dict(
-                              title = 'Cycles'),
-                          zaxis = dict(
-                              title = 'Charge Energy [Wh]')
-                          )
-                      )
-
-    fig4.update_yaxes(automargin=True)
-    st.plotly_chart(fig4, use_container_width=False)
-    
-    
-with col4:
-    fig5 = go.Figure(data=go.Scatter3d(
-        x=elec_a123['electrolyte'], 
-        y=elec_a123['Cycle'], 
-        z=elec_a123['Discharge_Energy (Wh)'],
-        marker=dict(
-            size=10,
-            color = '#5271FF'
-        ),
-        line=dict(
-            color='#5271FF',
-            width=3,
-            dash='dash'
-        ),
-        name='A123'
-    ))
-
-    fig5.add_trace(
-        go.Scatter3d(
-            x=elec_pan['electrolyte'],
-            y=elec_pan['Cycle'],
-            z=elec_pan['Discharge_Energy (Wh)'],
-            marker=dict(
-                size=10,
-                color = '#FF5757'
-            ),
-            line=dict(
-                color='#FF5757',
-                width=3,
-                dash='dash'
-            ),
-            name='Panasonic'
-            )
-        )
-
-    fig5.add_trace(
-        go.Scatter3d(
-            x=elec_LGC['electrolyte'], 
-            y=elec_LGC['Cycle'],
-            z=elec_LGC['Discharge_Energy (Wh)'],
-            marker=dict(
-                size=10,
-                color = '#FFBD59'
-            ),
-            line=dict(
-                color = '#FFBD59',
-                width=3,
-                dash='dash'
-            ),
-            name='LG Chem'
-            )
-        )
-
-    fig5.update_layout(title ={'text' :front_to_back[1] + ' Discharge Energy', 
-                              'x' : 0.5},
-                      autosize=False,
-                      width=600,
-                      height=600,
-                      font = dict(size = 14),
-                      scene = dict(
-                          xaxis = dict(
-                              nticks = 3,
-                              title = 'Electrolyte'),
-                          yaxis = dict(
-                              title = 'Cycles'),
-                          zaxis = dict(
-                              title = 'Discharge Energy [Wh]')
-                          )
-                      )
-
-    fig5.update_yaxes(automargin=True)
-    st.plotly_chart(fig5,use_container_width=False)
