@@ -18,21 +18,19 @@ Install and activate the environment with `environment.yml` with the following c
 
 `conda env create -f environment.yml` 
 
-<<<<<<< HEAD
-`conda activate SELEC_env` 
+`conda activate SELEC` 
 
 This enviroment contains the following packages: <br>
 - jupyter
-- pandas==1.4.1
-- numpy==1.21.2
-- scikit-learn==1.0.2
-- pip==21.2.4
+- pandas
+- numpy
+- scikit-learn
+- pip
 - pip:
   - plotly==5.6.0
-  - streamlit==1.7.0
-=======
-`conda activate selec` 
->>>>>>> fbe30ed92fd722ef270d9f0d94be0d82bd05735a
+  - streamlit
+
+installation instructions here
 
 -----
 ## Organization
@@ -41,9 +39,9 @@ This enviroment contains the following packages: <br>
 
 -----
 ## Battery Data
-The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. 
-
-The data was retrieved from the [Battery Archive](http://www.batteryarchive.org/). 
+The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. <br>
+The data was retrieved from the [Battery Archive](http://www.batteryarchive.org/) repo. <br>
+To see how 
 
 Citation for accompanying publication:
 
