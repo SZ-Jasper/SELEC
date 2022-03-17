@@ -50,11 +50,6 @@ def knn_train(df, output):
                                          weights = weight)
     train_results =[]
     train_results_name =['Experimental','Predicted ','RMSE']
-                                         n_neighbors=n_neigh,  
-                                         weights = weight)
-    train_results =[]
-    train_results_name =['Experimental','Predicted ','RMSE']
-
     kf = kfold(10,66)
     train,test,X_train,y_train,X_test,y_test = data_split(df, 0.2, 
                                                           output, 66)
