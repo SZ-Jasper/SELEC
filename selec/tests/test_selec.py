@@ -13,6 +13,18 @@ class Test_ohedf(unittest.TestCase):
     def test_failure(self):
         assert len(ohe_dataframe(df_battery)) == len(df_battery), 'The encoded df has different rows'
 
+#ohe_encoded_values unit test
+A1 = df_enbattery.iloc[:,0:1]
+E3 = df_enbattery.iloc[:,6:7]
+class Test_encode(unittest.TestCase):
+    #we can test if the all the A1 values equals to one and E3 values equals to zero
+    def test_A1values():
+        for i in range(len(A1)):
+            assert Ai[i] == 1 , 'wrong values for A1'
+    def test_E3values():
+        for j in range(len(E3)):
+            assert E3[1] == 0, 'wrong values for E3'
+        
 ##Data Split
 #Data split unit test
 class Test_split(unittest.TestCase):
