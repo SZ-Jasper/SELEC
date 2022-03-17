@@ -41,7 +41,7 @@ installation instructions here
 ## Battery Data
 The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. <br>
 The data was retrieved from the [Battery Archive](http://www.batteryarchive.org/) repo. <br>
-To see how 
+To see how battery data was obtained, please see `data` directory. 
 
 Citation for accompanying publication:
 
