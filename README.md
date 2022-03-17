@@ -72,9 +72,11 @@ Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 
 The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-based GUI that runs on the user's browser.
 
-To run the GUI from local files, change into the selec directory, and enter the following command from a terminal: 
+To run the GUI from local files, enter the following command from a terminal: 
 
-`streamlit run selec_gui.py`
+`cd selec`
+
+`streamlit run selec.py`
  
 This should bring up a series of URLS on the terminal, which can be copy and pasted into a web browser.
 
