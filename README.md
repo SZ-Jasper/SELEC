@@ -114,18 +114,18 @@ To run the GUI from local files, follow the instructions in the "Installation" s
 
 `streamlit run selec.py`
  
-This should bring up a series of URLS on the terminal, which can be copy and pasted into a web browser.
+This will return series of URLS on the terminal, which can be copy and pasted into a web browser.
 
 Upon entering the SELEC interface, there will be a side bar with a series of dropdown menus representing the various battery parameters the user can specify. Click on the desired parameters, and click the calculate button to start the predictive calculations. 
 
 
-After finishing the calculations, the following plots will appear on the GUI, all with respect to cycle number:
+After finishing calculations, the following plots will appear on the GUI, all with respect to cycle number:
 * Charge capacity 
 * Discharge capcity 
-* Coulombic efficiency
-* Energy efficiency
 * Charge energy
 * Discharge energy
+* Coulombic efficiency
+* Energy efficiency
 
 
 The user can interact with these plots by:
@@ -134,10 +134,12 @@ The user can interact with these plots by:
 * Rotating the 3D plots
 * Saving the figure as a png
 
-
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%203DPlot.png width=320>
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%202DPlot.JPG width=320>
 -----
 
 ## Tests
+`SELEC.py` contains all functions from modules in `selec` directory
 Use the following command to run tests in `SELEC_test.py`, change into tests directory and run: 
 
 `python -m unittest SELEC_test.py`
