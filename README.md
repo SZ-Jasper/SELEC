@@ -134,14 +134,12 @@ The user can interact with these plots by:
 * Rotating the 3D plots
 * Saving the figure as a png
 
-<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%203DPlot.png width=500 >
-
-<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%202DPlot.JPG width=500 >
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/SELEC%203DPlot.png width=500 p align = "center">
 
 -----
 
 ## Tests
-`SELEC.py` contains all functions from modules in `selec` directory
+`SELEC.py` contains all functions from modules in `selec` directory <br>
 Change into tests directory and Use the following command to run tests in `SELEC_test.py`:
 
 `python -m unittest SELEC_test.py`
