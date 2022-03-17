@@ -104,7 +104,7 @@ Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 -----
 ## Graphical User Interface
 
-<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG width=325 alt="selec gui sidebar with dropdown menus" p align="left">
+<img src=https://github.com/SZ-Jasper/SELEC/blob/main/doc/Visual/selec_sidebar.JPG width=320 alt="selec gui sidebar with dropdown menus" p align="left">
 
 The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-based GUI that runs on the user's browser.
 
