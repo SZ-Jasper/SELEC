@@ -34,10 +34,6 @@ This enviroment contains the following packages: <br>
   - plotly==5.6.0
   - streamlit
 
-After acivating the SELEC enviroment, install packages with the following command:
-
-`python setup.py install`
-
 -----
 ## Organization
 ```
@@ -53,8 +49,6 @@ selec/
 | |-knn.py             
 
 ```
-
-
 -----
 ## Battery Data
 The dataset provided in SELEC is modified from cycling data provided by Sandia National Laboratory. <br>
@@ -72,9 +66,9 @@ Yuliya Preger et al 2020 J. Electrochem. Soc. 167 120532
 
 The SELEC module uses Streamlit (https://streamlit.io/), an open-source Python-based GUI that runs on the user's browser.
 
-To run the GUI from local files, enter the following command from a terminal: 
+To run the GUI from local files, follow the instructions in the "Installation" section, then enter the following command from a terminal: 
 
-`cd selec`
+`cd SELEC/selec`
 
 `streamlit run selec.py`
  
