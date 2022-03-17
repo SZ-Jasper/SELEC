@@ -138,8 +138,14 @@ The user can interact with these plots by:
 -----
 
 ## Tests
-Use the following command to run tests in `test.py`: 
+Use the following command to run tests in `SELEC_test.py`, change into tests directory and run: 
 
-`python -m unittest test_selec.py`
+`python -m unittest SELEC_test.py`
 
 -----
+
+## Authors
+Karen Li, Chemical Engineering
+Rose Lee, Chemical Engineering
+Bella Wu, Material Science and Engineering
+Shuyan Zhao, Material Science and Engineering
