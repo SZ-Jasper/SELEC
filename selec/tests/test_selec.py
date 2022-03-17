@@ -1,4 +1,9 @@
-##One Hot Coding Dataset
+import unittest
+import pandas as pd
+from selec.dataprepare.dataprep import oheACE
+
+df_battery = pd.read_csv('../data/Battery_Dataset.csv')
+
 #ohe_Ace unit test
 class Test_oheace(unittest.TestCase):
 
@@ -14,6 +19,7 @@ class Test_ohedf(unittest.TestCase):
         assert len(ohe_dataframe(df_battery)) == len(df_battery), 'The encoded df has different rows'
 
 #ohe_encoded_values unit test
+df_encoded_ACE = ohe_ACE(df_battery)
 A1 = df_enbattery.iloc[:,0:1]
 E3 = df_enbattery.iloc[:,6:7]
 class Test_encode(unittest.TestCase):
