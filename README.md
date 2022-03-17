@@ -32,7 +32,14 @@ Install and activate the environment with `environment.yml` with the following c
 `conda activate SELEC_env` 
 
 This enviroment contains the following packages: <br>
--numpy
+- jupyter
+- pandas==1.4.1
+- numpy==1.21.2
+- scikit-learn==1.0.2
+- pip==21.2.4
+- pip:
+  - plotly==5.6.0
+  - streamlit==1.7.0
 
 -----
 ## Organization

@@ -6,9 +6,9 @@ import plotly.graph_objects as go
 import plotly.express as px
 import time
 
-from batt_descriptor.batt_describe import *
+from dataprepare.dataprep import *
 from model.knn import *
-from predictor.batt_predict import *
+from predictor.batterypredict import*
 
 
 # Logo, bc priorities --------------------------------------------
@@ -70,8 +70,9 @@ front_to_back = [an_option, cath_option, cycle_option, temp_option, c_rate_optio
 
 # SELEC magic -----------------------------------------------------
 with st.spinner('Working SELEC magic ... '):
+    df_battery = pd.read_csv('../data/Battery_Dataset.csv')
     report = report_gen(df_battery)
-    pulled_data = backend_to_frontend(df_battery, front_to_back, report)
+    pulled_data = user_report(df_battery, front_to_back, report)
 '...and now we\'re done!'
 
 
@@ -170,7 +171,8 @@ with col1:
 
 with col2:
     st.empty()
-    
+
+
 with col3:
     fig1 = go.Figure(data=go.Scatter3d(
         x=elec_a123['electrolyte'], 
@@ -250,8 +252,173 @@ with col3:
 st.empty()
 
 
+
+#Charge Enegry ----------------------------------
+with col1:
+    fig2 = go.Figure(data=go.Scatter3d(
+        x=elec_a123['electrolyte'], 
+        y=elec_a123['Cycle'], 
+        z=elec_a123['Charge_Energy (Wh)'],
+        marker=dict(
+            size=10,
+            color = '#5271FF'
+        ),
+        line=dict(
+            color='#5271FF',
+            width=3,
+            dash='dash'
+        ),
+        name='A123'
+    ))
+
+
+    fig2.add_trace(
+        go.Scatter3d(
+            x=elec_pan['electrolyte'],
+            y=elec_pan['Cycle'],
+            z=elec_pan['Charge_Energy (Wh)'],
+            marker=dict(
+                size=10,
+                color = '#FF5757'
+            ),
+            line=dict(
+                color='#FF5757',
+                width=3,
+                dash='dash'
+            ),
+            name='Panasonic'
+        )
+    )
+
+
+    fig2.add_trace(
+        go.Scatter3d(
+            x=elec_LGC['electrolyte'], 
+            y=elec_LGC['Cycle'],
+            z=elec_LGC['Charge_Energy (Wh)'],
+            marker=dict(
+                size=10,
+                color = '#FFBD59'
+                #color = '#545454'
+            ),
+            line=dict(
+                color = '#FFBD59',
+                #color='#545454',
+                width=3,
+                dash='dash'
+            ),
+            name='LG Chem'
+        )
+    )
+
+
+    fig2.update_layout(title ={'text' :front_to_back[1] + ' Cathode Charge Energy', 
+                              'x' : 0.5},
+                      autosize=False,
+                      width=600,
+                      height=600,
+                      font = dict(size = 14),
+                      scene = dict(
+                          xaxis = dict(
+                              nticks = 3,
+                              title = 'Electrolyte'),
+                          yaxis = dict(
+                              title = 'Cycles'),
+                          zaxis = dict(
+                              title = 'Charge_Energy [Wh]')
+                          )
+                      )
+
+    fig2.update_yaxes(automargin=True)
+    st.plotly_chart(fig2, use_container_width=False)
+
+with col2:
+    st.empty()
+
+
+with col3:
+    fig3 = go.Figure(data=go.Scatter3d(
+        x=elec_a123['electrolyte'], 
+        y=elec_a123['Cycle'], 
+        z=elec_a123['Discharge_Energy (Wh)'],
+        marker=dict(
+            size=10,
+            color = '#5271FF'
+        ),
+        line=dict(
+            color='#5271FF',
+            width=3,
+            dash='dash'
+        ),
+        name='A123'
+    ))
+
+    fig3.add_trace(
+        go.Scatter3d(
+            x=elec_pan['electrolyte'],
+            y=elec_pan['Cycle'],
+            z=elec_pan['Discharge_Energy (Wh)'],
+            marker=dict(
+                size=10,
+                color = '#FF5757'
+            ),
+            line=dict(
+                color='#FF5757',
+                width=3,
+                dash='dash'
+            ),
+            name='Panasonic'
+            )
+        )
+
+    fig3.add_trace(
+        go.Scatter3d(
+            x=elec_LGC['electrolyte'], 
+            y=elec_LGC['Cycle'],
+            z=elec_LGC['Discharge_Energy (Wh)'],
+            marker=dict(
+                size=10,
+                color = '#FFBD59'
+                #color = '#545454'
+            ),
+            line=dict(
+                color = '#FFBD59',
+                #color='#545454',
+                width=3,
+                dash='dash'
+            ),
+            name='LG Chem'
+            )
+        )
+
+    fig3.update_layout(title ={'text' :front_to_back[1] + ' Cathode Discharge Energy', 
+                              'x' : 0.5},
+                      autosize=False,
+                      width=600,
+                      height=600,
+                      font = dict(size = 14),
+                      scene = dict(
+                          xaxis = dict(
+                              nticks = 3,
+                              title = 'Electrolyte'),
+                          yaxis = dict(
+                              title = 'Cycles'),
+                          zaxis = dict(
+                              title = 'Discharge_Energy [Wh]')
+                          )
+                      )
+
+    fig3.update_yaxes(automargin=True)
+    st.plotly_chart(fig3,use_container_width=False)
+
+# Just adding white space
+st.empty()
+
+
+
+
 # Coulombic Efficiency
-fig2 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'], 
+fig4 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'], 
                                  y=elec_a123['Coulombic_Efficiency (%)'],
                                  marker=dict(
                                  size=10,
@@ -265,7 +432,7 @@ fig2 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'],
                                 name='A123')
                 )
 
-fig2.add_trace(go.Scatter(x=elec_pan['Cycle'], 
+fig4.add_trace(go.Scatter(x=elec_pan['Cycle'], 
                                  y=elec_pan['Coulombic_Efficiency (%)'],
                                  marker=dict(
                                      size=15,
@@ -281,7 +448,7 @@ fig2.add_trace(go.Scatter(x=elec_pan['Cycle'],
                          )
               )
 
-fig2.add_trace(go.Scatter(x=elec_LGC['Cycle'], 
+fig4.add_trace(go.Scatter(x=elec_LGC['Cycle'], 
                           y=elec_LGC['Coulombic_Efficiency (%)'],
                           marker=dict(
                               size=10,
@@ -299,7 +466,7 @@ fig2.add_trace(go.Scatter(x=elec_LGC['Cycle'],
                          )
               )
 
-fig2.update_layout(title ={'text' :front_to_back[1] + ' Coulombic Efficiency', 
+fig4.update_layout(title ={'text' :front_to_back[1] + ' Coulombic Efficiency', 
                           'x' : 0.45},
                    font = dict(size = 15),
                    xaxis = dict(
@@ -307,10 +474,10 @@ fig2.update_layout(title ={'text' :front_to_back[1] + ' Coulombic Efficiency',
                    yaxis = dict(
                        title = 'CE (%)')
                   )
-st.plotly_chart(fig2)
+st.plotly_chart(fig4)
 
 # Energy Efficiency
-fig3 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'], 
+fig5 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'], 
                                  y=elec_a123['Energy_Efficiency (%)'],
                                  marker=dict(
                                  size=10,
@@ -324,7 +491,7 @@ fig3 = go.Figure(data=go.Scatter(x=elec_a123['Cycle'],
                                 name='A123')
                 )
 
-fig3.add_trace(go.Scatter(x=elec_pan['Cycle'], 
+fig5.add_trace(go.Scatter(x=elec_pan['Cycle'], 
                                  y=elec_pan['Energy_Efficiency (%)'],
                                  marker=dict(
                                      size=15,
@@ -340,7 +507,7 @@ fig3.add_trace(go.Scatter(x=elec_pan['Cycle'],
                          )
               )
 
-fig3.add_trace(go.Scatter(x=elec_LGC['Cycle'], 
+fig5.add_trace(go.Scatter(x=elec_LGC['Cycle'], 
                           y=elec_LGC['Energy_Efficiency (%)'],
                           marker=dict(
                               size=10,
@@ -358,7 +525,7 @@ fig3.add_trace(go.Scatter(x=elec_LGC['Cycle'],
                          )
               )
 
-fig3.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency', 
+fig5.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency', 
                           'x' : 0.45},
                    font = dict(size = 15),
                    xaxis = dict(
@@ -366,4 +533,4 @@ fig3.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency',
                    yaxis = dict(
                        title = 'EE (%)')
                   )
-st.plotly_chart(fig3)
+st.plotly_chart(fig5)
