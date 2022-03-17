@@ -46,18 +46,15 @@ def knn_train(df, output):
     np.random.seed(66)
     alg, n_neigh, weight = grid_knn_hp(1, 51, df, output)
     KNN_model_train =KNeighborsRegressor( algorithm = alg, 
-<<<<<<< HEAD
                                          n_neighbors=n_neigh, 
                                          weights = weight)
     train_results =[]
     train_results_name =['Experimental','Predicted ','RMSE']
-=======
                                          n_neighbors=n_neigh,  
                                          weights = weight)
     train_results =[]
     train_results_name =['Experimental','Predicted ','RMSE']
 
->>>>>>> fbe30ed92fd722ef270d9f0d94be0d82bd05735a
     kf = kfold(10,66)
     train,test,X_train,y_train,X_test,y_test = data_split(df, 0.2, 
                                                           output, 66)
