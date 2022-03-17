@@ -170,18 +170,12 @@ with col1:
 
     fig.update_yaxes(automargin=True)
     st.plotly_chart(fig, use_container_width=False)
-<<<<<<< HEAD
 
 with col2:
     st.empty()
 
 
 with col3:
-=======
-    
-    
-with col2:
->>>>>>> fbe30ed92fd722ef270d9f0d94be0d82bd05735a
     fig1 = go.Figure(data=go.Scatter3d(
         x=elec_a123['electrolyte'], 
         y=elec_a123['Cycle'], 
@@ -541,7 +535,7 @@ fig5.update_layout(title ={'text' :front_to_back[1] + ' Energy Efficiency',
                    yaxis = dict(
                        title = 'EE (%)')
                   )
-<<<<<<< HEAD
+
 st.plotly_chart(fig5)
 =======
 st.plotly_chart(fig3)
@@ -703,4 +697,3 @@ with col4:
 
     fig5.update_yaxes(automargin=True)
     st.plotly_chart(fig5,use_container_width=False)
->>>>>>> fbe30ed92fd722ef270d9f0d94be0d82bd05735a

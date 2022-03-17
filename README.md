@@ -14,11 +14,15 @@ For those who would like to run the jupyter and python files, please ensure you 
 
 -----
 ## Installation
-Install and activate the environment with `environment.yml` with the following commands:
+Install and activate the 'SELEC' environment in your desired directory with the following commands:
+
+'git clone https://github.com/SZ-Jasper/SELEC.git'
+
+'cd SELEC'
 
 `conda env create -f environment.yml` 
 
-`conda activate SELEC` 
+`conda activate selec`
 
 This enviroment contains the following packages: <br>
 - jupyter
@@ -32,7 +36,7 @@ This enviroment contains the following packages: <br>
 
 After acivating the SELEC enviroment, install packages with the following command:
 
-`pip install git+https://github.com/SZ-Jasper/SELEC.git`
+`python setup.py install`
 
 -----
 ## Organization
